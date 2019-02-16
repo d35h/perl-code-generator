@@ -1,0 +1,8 @@
+[% FOREACH row IN comments -%]
+{ [% row %] }
+[% END -%]
+[% message -%]Msg = packed record
+[% FOREACH field IN fields -%]
+	[% field.0 %] [% IF field.1 == "int" -%]LongInt[% END %][% IF field.1.match('\w+[\d+]') -%]array[0..[% field.1.remove('[^0-9]') %]] of [% field.1.remove('([\d+|\]|\[])') %][% END %];
+[% END -%]
+end;

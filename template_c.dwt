@@ -1,0 +1,8 @@
+[% FOREACH row IN comments -%]
+/* [% row %] */
+[% END %]
+typedef struct {
+[% FOREACH field IN fields -%]
+	[% field.0 %] [% field.1 %]
+[% END -%]
+} [% message -%]Msg;
